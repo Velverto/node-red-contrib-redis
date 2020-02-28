@@ -17,12 +17,14 @@
             cluster: {
                 value: false
             },
-            optionsType: { value: "json" }
+            optionsType: {
+                value: "json"
+            }
         },
-        label: function () {
+        label: function() {
             return this.name || "Redis host";
         },
-        oneditprepare: function () {
+        oneditprepare: function() {
             $("#node-config-input-options").typedInput({
                 default: 'str',
                 typeField: $("#node-config-input-optionsType"),
@@ -78,7 +80,7 @@
                 validate: RED.validators.number()
             }
         },
-        label: function () {
+        label: function() {
             return this.name || this.topic || "redis in";
         }
     });
@@ -145,7 +147,7 @@
                 value: ""
             }
         },
-        label: function () {
+        label: function() {
             return this.name || this.topic || "redis out";
         }
     });
@@ -208,10 +210,12 @@
             },
             params: {
                 value: "{}",
-                validate: RED.validators.typedInput("paramsType"),
+                //validate: RED.validators.typedInput("paramsType"),
                 required: false
             },
-            paramsType: { value: "json" },
+            paramsType: {
+                value: "json"
+            },
             payloadType: {
                 value: "json"
             },
@@ -219,10 +223,10 @@
                 value: false
             }
         },
-        label: function () {
+        label: function() {
             return this.name || "redis " + this.command + " " + (this.topic || "");
         },
-        oneditprepare: function () {
+        oneditprepare: function() {
             $("#node-input-params").typedInput({
                 default: 'json',
                 typeField: $("#node-input-paramsType"),
@@ -468,10 +472,10 @@
                 value: false
             }
         },
-        label: function () {
+        label: function() {
             return this.name || "Redis Lua";
         },
-        oneditprepare: function () {
+        oneditprepare: function() {
             var that = this;
             $("#node-input-keyval").spinner({
                 min: 0
@@ -490,7 +494,7 @@
             });
             this.editor.focus();
         },
-        oneditsave: function () {
+        oneditsave: function() {
             var annot = this.editor.getSession().getAnnotations();
             this.noerr = 0;
             $("#node-input-noerr").val(0);
@@ -504,7 +508,7 @@
             $("#node-input-func").val(this.editor.getValue());
             delete this.editor;
         },
-        oneditresize: function (size) {
+        oneditresize: function(size) {
             var rows = $("#dialog-form>div:not(.node-text-editor-row)");
             var height = $("#dialog-form").height();
             for (var i = 0; i < rows.size(); i++) {
@@ -527,7 +531,7 @@
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
-    
+
     <div class="form-row">
         <label>&nbsp;</label>
         <input type="checkbox" id="node-input-stored" style="display: inline-block; width: auto; vertical-align: top;">
@@ -592,7 +596,7 @@
                 value: false
             }
         },
-        label: function () {
+        label: function() {
             return this.name || this.topic || "instance";
         }
     });
@@ -626,7 +630,7 @@
 
 <script type="text/x-red" data-help-name="redis-instance">
     <p>Redis Instance</p>
-    <p>Injects a Redis connection on flow or global context.</p> 
+    <p>Injects a Redis connection on flow or global context.</p>
     <p>The Topic is the var name of redis.</p>
     <p></p>
 </script>
